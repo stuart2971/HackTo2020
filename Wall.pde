@@ -1,5 +1,3 @@
-//The purpose of this class is to make and get information about walls
-
 class Wall {
   float x1;
   float x2;
@@ -16,19 +14,15 @@ class Wall {
     y2 = y + height;
   }
   
-  //getLeft() returns x1
   float getLeft() {
     return x1;
   }
-  //getRight() returns x2
   float getRight() {
     return x2;
   }
-  //getTop() returns y1
   float getTop() {
     return y1;
   }
-  //getBottom() returns y1
   float getBottom() {
     return y2;
   }
