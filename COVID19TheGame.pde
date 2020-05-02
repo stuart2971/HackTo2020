@@ -1,21 +1,13 @@
-import processing.sound.*;
-
+  
 Wall[] walls = new Wall[6];
 Bullet[] sneezes = new Bullet[0];
 Player you;
-
-SoundFile file;
-String path;
-
 void setup() {
   size(1200,500);
   for(int i = 0; i < walls.length; i++) {
     walls[i] = new Wall();
   }
    you = new Player(50, 50);
-   path = sketchPath("sample.wav");
-   file = new SoundFile(this, path);
-   file.play();
 }
 
 void draw(){
@@ -32,6 +24,7 @@ void draw(){
 
 void mouseClicked() {
   sneezes = (Bullet[])append(sneezes, you.createBullet(mouseX, mouseY));
+  
   println(sneezes.length);
 }
 void drawWalls(){
@@ -41,13 +34,4 @@ void drawWalls(){
   walls[3].drawWall(740,400,250,10);
   walls[4].drawWall(860,120,10,280);
   walls[5].drawWall(1100,0,10,400);
-  
-  fill(108, 194, 58);
-  rect(0, 430, 70, 70);
-  
-  fill(240, 54, 34);
-  rect(0, 0, 240, 240);
-  
-  fill(240, 54, 34);
-  rect(1110, 0, 90, 70);
 }
