@@ -5,6 +5,7 @@ Bullet[] sneezes = new Bullet[0];
 Player you;
 
 SoundFile file;
+String path;
 
 void setup() {
   size(1200,500);
@@ -40,4 +41,13 @@ void drawWalls(){
   walls[3].drawWall(740,400,250,10);
   walls[4].drawWall(860,120,10,280);
   walls[5].drawWall(1100,0,10,400);
+  
+  fill(108, 194, 58);
+  rect(0, 430, 70, 70);
+  
+  fill(240, 54, 34);
+  rect(0, 0, 240, 240);
+  
+  fill(240, 54, 34);
+  rect(1110, 0, 90, 70);
 }
