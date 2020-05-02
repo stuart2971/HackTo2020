@@ -1,13 +1,20 @@
-  
+import processing.sound.*;
+
 Wall[] walls = new Wall[6];
 Bullet[] sneezes = new Bullet[0];
 Player you;
+
+SoundFile file;
+
 void setup() {
   size(1200,500);
   for(int i = 0; i < walls.length; i++) {
     walls[i] = new Wall();
   }
    you = new Player(50, 50);
+   path = sketchPath("sample.wav");
+   file = new SoundFile(this, path);
+   file.play();
 }
 
 void draw(){
