@@ -2,6 +2,7 @@ import processing.sound.*;
 
 Wall[] walls = new Wall[6];
 Bullet[] sneezes = new Bullet[0];
+Bot[] bot = new Bot[5];
 Player you;
 SoundFile file;
 String path;
@@ -12,10 +13,14 @@ void setup() {
     walls[i] = new Wall();
   }
    you = new Player(50, 50);
-   
    path = sketchPath("sample.wav");
    file = new SoundFile(this, path);
    file.play();
+   for(int i = 0; i < bot.length; i++) {
+    bot[i] = new Bot();
+    bot[i].makeBot(250,250);
+  }
+   
 }
 
 void draw(){
@@ -24,9 +29,17 @@ void draw(){
   drawWalls();
   you.show();
   you.move();
+  
   for(int i = 0; i < sneezes.length; i++){
     sneezes[i].move();
     sneezes[i].show();
+  }
+  
+  for (int i = 0; i < bot.length; i++) {
+    bot[i].showBot();
+    bot[i].moveBot();
+    for (int j = 0; j < walls.length; j++)
+      bot[i].botCollision(walls[j].getLeft(),walls[j].getRight(), walls[j].getTop(), walls[j].getBottom()); 
   }
 }
 
