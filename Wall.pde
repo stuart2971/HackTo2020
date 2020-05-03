@@ -3,8 +3,6 @@ class Wall {
   float x2;
   float y1;
   float y2;
-  
-  
   //draw(x,y,width,height) draws a walls with the specific dimensions and at the specific location
   void drawWall(float x, float y, float width, float height) {
     rect(x,y, width, height);
