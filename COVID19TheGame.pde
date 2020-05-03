@@ -27,7 +27,7 @@ void setup() {
    file.play();
    for(int i = 0; i < bots.length; i++) {
     bots[i] = new Bot();
-    bots[i].makeBot(50,50);
+    bots[i].makeBot(51,51);
   }
 }
 
@@ -60,8 +60,8 @@ void draw(){
         bots[j].setIsInfected(true);
       }
     }
-    for (int j = 0; j < walls.length; j++)
-      bots[i].botCollision(walls[j].getLeft(),walls[j].getRight(), walls[j].getTop(), walls[j].getBottom()); 
+    for(int j = 0; j < walls.length; j++)
+      bots[i].botCollision(walls[j].getLeft(), walls[j].getRight(), walls[j].getTop(), walls[j].getBottom()); 
   }
 }
 

@@ -1,7 +1,7 @@
 class Bullet{
   PVector position;
   PVector directionSpeed;
-  int size = 10;
+  float size = 4;
   int travelDistance = 60;
   
   Bullet(float playerPosX, float playerPosY, int mousePosX, int mousePosY){
