@@ -1,6 +1,6 @@
 import processing.sound.*;
 
-Wall[] walls = new Wall[6];
+Wall[] walls = new Wall[10];
 Bullet[] sneezes = new Bullet[0];
 Bot[] bot = new Bot[5];
 Player you;
