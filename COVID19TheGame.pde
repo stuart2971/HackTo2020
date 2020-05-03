@@ -94,8 +94,8 @@ void draw(){
 }
 
 void mouseClicked() {
-  SoundFile pew = new SoundFile(this, sketchPath("pew.wav"));
-  pew.play();
+  SoundFile achoo = new SoundFile(this, sketchPath("achoo.wav"));
+  achoo.play();
   
   sneezes = (Bullet[])append(sneezes, you.createBullet(mouseX, mouseY));
   if(sneezes.length > 5){
