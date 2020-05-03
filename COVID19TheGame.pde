@@ -55,4 +55,8 @@ void drawWalls(){
   walls[3].drawWall(740,400,250,10);
   walls[4].drawWall(860,120,10,280);
   walls[5].drawWall(1100,0,10,400);
+  walls[6].drawWall(0, 0, 1200, 10);
+  walls[7].drawWall(0, 0, 10, 500);
+  walls[8].drawWall(0, 490, 1200, 10);
+  walls[9].drawWall(1190, 0, 10, 500);
 }
