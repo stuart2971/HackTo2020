@@ -94,6 +94,9 @@ void draw(){
 }
 
 void mouseClicked() {
+  SoundFile pew = new SoundFile(this, sketchPath("pew.wav"));
+  pew.play();
+  
   sneezes = (Bullet[])append(sneezes, you.createBullet(mouseX, mouseY));
   if(sneezes.length > 5){
     sneezes = (Bullet[])subset(sneezes, 1);
