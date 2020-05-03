@@ -1,14 +1,11 @@
 class Bot {
   boolean isInfected = false;
-  float x;
-  float y;
-  float xSpeed = floor(random(1,3))*pow(-1,floor(random(0,2)));
-  float ySpeed = floor(random(1,3))*pow(-1,floor(random(0,2)));
-  int size = 30;
+  PVector position;
+  PVector velocity = new PVector(floor(random(1,3))*pow(-1,floor(random(0,2))), floor(random(1,3))*pow(-1,floor(random(0,2))));
+  int size = 20;
   
   void makeBot (float initPosX, float initPosY) {
-    x = initPosX;
-    y = initPosY;
+    this.position = new PVector(initPosX, initPosY);
   }
   void showBot () {
     if(isInfected()){
@@ -17,20 +14,20 @@ class Bot {
       fill(255, 255, 255);
     }
     noStroke();
-    ellipse(x,y,this.size,this.size);
+    ellipse(this.position.x,this.position.y,this.size,this.size);
   }
   float getX(){
-    return this.x;
+    return this.position.x;
   }
   float getY(){
-    return this.y;
+    return this.position.y;
   }
   int getSize(){
     return this.size;
   }
   void moveBot () {
-    x += xSpeed;
-    y += ySpeed;
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
   }
   boolean isInfected(){
     return this.isInfected;
@@ -39,20 +36,15 @@ class Bot {
     this.isInfected = newIsInfected;
   }
   void botCollision (float left, float right, float top, float bottom) {
-    if (x == left && y >= top && y <= bottom && (x < right)) {
-      xSpeed *= -1;
-    }
-    if (x == right && y >= top && y <= bottom && (x > left)) {
-      xSpeed *= -1;
-    }
-    if(y == top && x >= left && x <= right && (y < bottom)) {
-       ySpeed *= -1;
-    }
-    if (y == bottom && x >= left && x <= right && (y > top)){
-      ySpeed *= -1;
-    }
+    if(this.position.x + this.size > left &&
+            this.position.y + this.size > top &&
+            this.position.x - this.size < right &&
+            this.position.y - this.size < bottom){
+              this.velocity.rotate(HALF_PI);
+            }
+                
   }
   boolean checkIfHitAnotherBot(Bot b) {
-    return sq(b.x - this.x) + sq(b.y - this.y) < sq(b.getSize() + this.size);
+    return sq(b.position.x - this.position.x) + sq(b.position.y - this.position.y) < sq(b.getSize() + this.size);
   }
 }
