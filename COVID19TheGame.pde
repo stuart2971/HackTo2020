@@ -6,7 +6,9 @@ String[] tips = {
   "If you have mild symptoms and are otherwise healthy, self-isolate and contact your medical provider or a COVID-19 information line for advice."
 };
 int[][] obstacles = {
+{520,100,10,400},
 {0,420,400,10},
+{640,0,10,400},
 {740,400,250,10},
 {860,120,10,280},
 {1100,0,10,400},
