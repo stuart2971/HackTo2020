@@ -49,6 +49,17 @@ void mouseClicked() {
   println(sneezes.length);
 }
 void drawWalls(){
+ fill(108, 194, 58);
+  rect(0, 430, 70, 70);
+  
+  fill(240, 54, 34);
+  rect(0, 0, 240, 240);
+  
+  fill(240, 54, 34);
+  rect(1110, 0, 90, 70);
+  
+  fill(255);
+  
   walls[0].drawWall(520,100,10,400);
   walls[1].drawWall(0,420,400,10);
   walls[2].drawWall(640,0,10,400);
