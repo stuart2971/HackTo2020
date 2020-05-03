@@ -20,7 +20,7 @@ int[][] obstacles = {
 Wall[] walls = new Wall[obstacles.length];
 Bullet[] sneezes = new Bullet[0];
 Player you;
-Bot[] bots = new Bot[100];
+Bot[] bots = new Bot[10];
 
 void setup() {
   size(1200,500);
@@ -32,8 +32,18 @@ void setup() {
    file.play();
    for(int i = 0; i < bots.length; i++) {
     bots[i] = new Bot();
-    bots[i].makeBot(random(40, 100),random(40, 100));
-  }
+
+  };
+    bots[0].makeBot(250, 300);
+    bots[1].makeBot(550, 400);
+    bots[2].makeBot(200, 100);
+    bots[3].makeBot(600, 150);
+    bots[4].makeBot(150, 150);
+    bots[5].makeBot(750, 200);
+    bots[6].makeBot(100, 400);
+    bots[7].makeBot(200, 300);
+    bots[8].makeBot(350, 200);
+    bots[9].makeBot(1000, 250);
 }
 
 void draw(){
