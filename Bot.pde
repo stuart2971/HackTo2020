@@ -23,19 +23,15 @@ class Bot {
   void botCollision (float left, float right, float top, float bottom) {
     if (x == left && y >= top && y <= bottom && (x < right)) {
       xSpeed *= -1;
-      print("left");
     }
     if (x == right && y >= top && y <= bottom && (x > left)) {
       xSpeed *= -1;
-      print("right");
     }
     if(y == top && x >= left && x <= right && (y < bottom)) {
        ySpeed *= -1;
-       print("top");
     }
     if (y == bottom && x >= left && x <= right && (y > top)){
       ySpeed *= -1;
-      print("bottom");
     }
   }
 }
