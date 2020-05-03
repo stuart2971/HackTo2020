@@ -1,7 +1,7 @@
 class Bot {
   boolean isInfected = false;
   PVector position;
-  PVector velocity = new PVector(floor(random(1,3))*pow(-1,floor(random(0,2))), floor(random(1,3))*pow(-1,floor(random(0,2))));
+  PVector velocity = new PVector(random(-3, 3), random(-3, 3));
   int size = 20;
   
   void makeBot (float initPosX, float initPosY) {

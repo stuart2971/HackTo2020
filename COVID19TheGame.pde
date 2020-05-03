@@ -15,7 +15,7 @@ int[][] obstacles = {
 Wall[] walls = new Wall[obstacles.length];
 Bullet[] sneezes = new Bullet[0];
 Player you;
-Bot[] bots = new Bot[50];
+Bot[] bots = new Bot[100];
 
 void setup() {
   size(1200,500);
@@ -27,7 +27,7 @@ void setup() {
    file.play();
    for(int i = 0; i < bots.length; i++) {
     bots[i] = new Bot();
-    bots[i].makeBot(51,51);
+    bots[i].makeBot(random(30, width),random(30, height));
   }
 }
 
@@ -51,9 +51,13 @@ void draw(){
       }
     }
   }
+  int infectedBots = 0;
   for (int i = 0; i < bots.length; i++) {
     bots[i].showBot();
     bots[i].moveBot();
+    if(bots[i].isInfected())
+      infectedBots++;
+      
     for(int j = 0; j < bots.length; j++){
       if(i == j) continue;
       if(bots[i].checkIfHitAnotherBot(bots[j]) & bots[i].isInfected()){
@@ -63,6 +67,7 @@ void draw(){
     for(int j = 0; j < walls.length; j++)
       bots[i].botCollision(walls[j].getLeft(), walls[j].getRight(), walls[j].getTop(), walls[j].getBottom()); 
   }
+  if(infectedBots == bots.length) noLoop();
 }
 
 void mouseClicked() {
