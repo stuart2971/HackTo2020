@@ -12,7 +12,7 @@ class Bot {
     color c = #88ff00;
     fill(c);
     noStroke();
-    ellipse(x,y,10,10);
+    ellipse(x,y,30,30);
   }
   
   void moveBot () {
