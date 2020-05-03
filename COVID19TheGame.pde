@@ -1,9 +1,12 @@
 import processing.sound.*;
-
+String[] tips = {
+  "If you feel sick you should rest, drink plenty of fluid, and eat nutritious food. Stay in a separate room from other family members, and use a dedicated bathroom if possible. Clean and disinfect frequently touched surfaces.",
+  "Everyone should keep a healthy lifestyle at home. Maintain a healthy diet, sleep, stay active, and make social contact with loved ones through the phone or internet. Children need extra love and attention from adults during difficult times. Keep to regular routines and schedules as much as possible.",
+  "It is normal to feel sad, stressed, or confused during a crisis. Talking to people you trust, such as friends and family, can help. If you feel overwhelmed, talk to a health worker or counsellor.",
+  "If you have mild symptoms and are otherwise healthy, self-isolate and contact your medical provider or a COVID-19 information line for advice."
+};
 int[][] obstacles = {
-{520,100,10,400},
 {0,420,400,10},
-{640,0,10,400},
 {740,400,250,10},
 {860,120,10,280},
 {1100,0,10,400},
@@ -27,7 +30,7 @@ void setup() {
    file.play();
    for(int i = 0; i < bots.length; i++) {
     bots[i] = new Bot();
-    bots[i].makeBot(random(30, width),random(30, height));
+    bots[i].makeBot(random(40, 100),random(40, 100));
   }
 }
 
@@ -67,7 +70,15 @@ void draw(){
     for(int j = 0; j < walls.length; j++)
       bots[i].botCollision(walls[j].getLeft(), walls[j].getRight(), walls[j].getTop(), walls[j].getBottom()); 
   }
-  if(infectedBots == bots.length) noLoop();
+  
+  if(infectedBots == bots.length){
+    background(51);
+    textSize(22);
+    fill(255);
+    String tip = tips[floor(random(0, tips.length))];
+    text(tip, 0, 0, width, height);
+    noLoop();
+  }
 }
 
 void mouseClicked() {
